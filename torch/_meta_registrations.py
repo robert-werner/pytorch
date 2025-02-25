@@ -411,6 +411,11 @@ def meta_randint(
     device=None,
     pin_memory=None,
 ):
+    low = 0
+    torch._check(
+        high > low,
+        lambda: f"random_ expects 'from' to be less than 'to', but got from={low} >= to={high}",
+    )
     return torch.empty(
         size, dtype=dtype, layout=layout, device=device, pin_memory=pin_memory
     )
@@ -428,6 +433,10 @@ def meta_randint_low(
     device=None,
     pin_memory=None,
 ):
+    torch._check(
+        high > low,
+        lambda: f"random_ expects 'from' to be less than 'to', but got from={low} >= to={high}",
+    )
     return torch.empty(
         size, dtype=dtype, layout=layout, device=device, pin_memory=pin_memory
     )
@@ -2614,7 +2623,7 @@ if torch._C._has_mkldnn:
         output_shape = list(x.shape)
         # The weight has been transposed during the qlinear weight prepack process.
         output_shape[-1] = w.shape[1]
-        assert output_dtype in [torch.float32, torch.bfloat16, torch.uint8]
+        assert output_dtype in [torch.float32, torch.bfloat16, torch.uint8, torch.int8]
         out = x.new_empty(output_shape, dtype=output_dtype)
         return out
 
