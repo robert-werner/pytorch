@@ -226,6 +226,17 @@ case "$image" in
     CONDA_CMAKE=yes
     TRITON=yes
     ;;
+  pytorch-linux-jammy-rocm6.3.3-n-py3.11)
+    ANACONDA_PYTHON_VERSION=3.11
+    GCC_VERSION=9
+    PROTOBUF=yes
+    DB=yes
+    VISION=yes
+    ROCM_VERSION=6.3.3
+    NINJA_VERSION=1.9.0
+    CONDA_CMAKE=yes
+    TRITON=yes
+    ;;
   pytorch-linux-jammy-xpu-2024.0-py3)
     ANACONDA_PYTHON_VERSION=3.9
     GCC_VERSION=11
