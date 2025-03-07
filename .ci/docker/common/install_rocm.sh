@@ -118,6 +118,9 @@ install_centos() {
   yum update -y
 
   yum install -y \
+                   rocm-cmake=0.14.0.60303-74 \
+                   rocm-device-libs=1.0.0.60303-74 \
+                   rocminfo=1.0.0.60303-74 \
                    rocm-dev \
                    rocm-utils \
                    rocm-libs \
