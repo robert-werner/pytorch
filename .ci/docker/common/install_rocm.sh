@@ -34,9 +34,9 @@ install_ubuntu() {
     apt-get update --allow-insecure-repositories
 
     DEBIAN_FRONTEND=noninteractive apt-get install -y --allow-unauthenticated \
-                   rocm-cmake=0.14.0.60303-74 \
-                   rocm-device-libs=1.0.0.60303-74 \
-                   rocminfo=1.0.0.60303-74 \
+                   rocm-cmake=0.14.0.60303-74~$UBUNTU_VERSION \
+                   rocm-device-libs=1.0.0.60303-74~$UBUNTU_VERSION \
+                   rocminfo=1.0.0.60303-74~22.04 \
                    rocm-dev \
                    rocm-utils \
                    rocm-libs \
